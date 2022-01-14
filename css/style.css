@@ -8,6 +8,9 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Montserrat", sans-serif;
 }
@@ -56,7 +59,7 @@ body {
 
 header {
   height: 100vh;
-
+  min-height: 500px;
   background-image: url("../images/cloud.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -156,4 +159,147 @@ nav {
 .card a {
   text-decoration: none;
   color: #ff008e;
+}
+
+/* gallery section start  */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.photo img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 3px solid #ff008e;
+}
+
+/* contact section css  */
+
+.contact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.contact-left img {
+  width: 100%;
+}
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-field {
+  width: 100%;
+  margin: 10px 0px;
+  padding: 10px;
+  font-size: 18px;
+  font-family: inherit;
+  outline: 0;
+  border: 1px solid #ff008e;
+}
+
+/* footer css  */
+footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* navbar css  */
+
+#nav-toggler {
+  display: none;
+}
+
+.nav-toggler-icon {
+  display: none;
+  font-size: 30px;
+  color: #fff;
+}
+
+/* media queries  */
+
+@media (max-width: 950px) {
+  header {
+    height: 80vh;
+  }
+  .banner-left h1 {
+    font-size: 35px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .banner {
+    grid-template-columns: 1fr;
+    height: fit-content;
+  }
+
+  .feature,
+  .gallery,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+  .contact {
+    padding-bottom: 30px;
+  }
+  .photo {
+    text-align: center;
+  }
+  .photo img {
+    max-width: 350px;
+  }
+
+  header {
+    height: fit-content;
+    padding-bottom: 50px;
+  }
+  .banner-left h1 {
+    font-size: 30px;
+  }
+  .banner {
+    text-align: center;
+  }
+
+  .center {
+    align-self: center;
+  }
+  .banner-right img {
+    width: 50%;
+  }
+  .banner-left {
+    order: 2;
+  }
+
+  .nav-toggler-icon {
+    display: block;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px 0;
+    transform: translateY(-350px);
+    transition: 0.5s ease-in-out;
+  }
+  .navigation li a {
+    color: #121212;
+  }
+  #nav-toggler:checked ~ .navigation {
+    transform: translateY(0px);
+  }
 }
